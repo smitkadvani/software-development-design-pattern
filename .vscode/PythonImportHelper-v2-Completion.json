@@ -1,0 +1,329 @@
+[
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "Burger",
+        "kind": 6,
+        "importPath": "builderPattern",
+        "description": "builderPattern",
+        "peekOfCode": "class Burger:\n    def __init__(self):\n        self.bun = None\n        self.patty = None\n        self.cheese = None\n    def setBun(self, bun):\n        self.bun = bun\n    def setPatty(self, patty):\n        self.patty = patty\n    def setCheese(self, cheese):",
+        "detail": "builderPattern",
+        "documentation": {}
+    },
+    {
+        "label": "BurgerBuilder",
+        "kind": 6,
+        "importPath": "builderPattern",
+        "description": "builderPattern",
+        "peekOfCode": "class BurgerBuilder:\n    def __init__(self):\n        self.burger = Burger()\n    def addBun(self, bun):\n        self.burger.setBun(bun)\n        return self\n    def addPatty(self, patty):\n        self.burger.setPatty(patty)\n        return self\n    def addCheese(self, cheese):",
+        "detail": "builderPattern",
+        "documentation": {}
+    },
+    {
+        "label": "burger",
+        "kind": 5,
+        "importPath": "builderPattern",
+        "description": "builderPattern",
+        "peekOfCode": "burger = BurgerBuilder()\\\n                .addBun('bread')\\\n                .addPatty('chicken')\\\n                .addCheese('cheese')\\\n                .build().print()",
+        "detail": "builderPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Burger",
+        "kind": 6,
+        "importPath": "creationalPattern",
+        "description": "creationalPattern",
+        "peekOfCode": "class Burger:\n    def __init__(self, ingridients):\n        self.ingridients = ingridients\n    def print(self):\n        print(self.ingridients)\nclass BurgerFactory:\n    def createChickenBurger(self):\n        return Burger(['chicken', 'bread'])\n    def createCheeseBurger(self):\n        return Burger(['cheese', 'bread'])",
+        "detail": "creationalPattern",
+        "documentation": {}
+    },
+    {
+        "label": "BurgerFactory",
+        "kind": 6,
+        "importPath": "creationalPattern",
+        "description": "creationalPattern",
+        "peekOfCode": "class BurgerFactory:\n    def createChickenBurger(self):\n        return Burger(['chicken', 'bread'])\n    def createCheeseBurger(self):\n        return Burger(['cheese', 'bread'])\n    def createVegBurger(self):\n        return Burger(['veg', 'bread'])\n    def createVeganBurger(self):\n        return Burger(['vegan', 'bread'])\nburgerFactory = BurgerFactory()",
+        "detail": "creationalPattern",
+        "documentation": {}
+    },
+    {
+        "label": "burgerFactory",
+        "kind": 5,
+        "importPath": "creationalPattern",
+        "description": "creationalPattern",
+        "peekOfCode": "burgerFactory = BurgerFactory()\nburgerFactory.createChickenBurger().print()\nburgerFactory.createCheeseBurger().print()\nburgerFactory.createVegBurger().print()\nburgerFactory.createVeganBurger().print()",
+        "detail": "creationalPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Shape",
+        "kind": 6,
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "peekOfCode": "class Shape(ABC):\n    @abstractmethod\n    def draw(self):\n        pass\nclass Rectangle(Shape):\n    def draw(self):\n        print(f'Rectangle is here')\nclass Square(Shape):\n    def draw(self):\n        print(\"Square is here\")",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Rectangle",
+        "kind": 6,
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "peekOfCode": "class Rectangle(Shape):\n    def draw(self):\n        print(f'Rectangle is here')\nclass Square(Shape):\n    def draw(self):\n        print(\"Square is here\")\nclass Circle(Shape):\n    def draw(self):\n        print(f\"Circle is here\")\nclass ShapeFactory:",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Square",
+        "kind": 6,
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "peekOfCode": "class Square(Shape):\n    def draw(self):\n        print(\"Square is here\")\nclass Circle(Shape):\n    def draw(self):\n        print(f\"Circle is here\")\nclass ShapeFactory:\n    @staticmethod\n    def get_shape(shape_type):\n        if shape_type == 'Circle':",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Circle",
+        "kind": 6,
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "peekOfCode": "class Circle(Shape):\n    def draw(self):\n        print(f\"Circle is here\")\nclass ShapeFactory:\n    @staticmethod\n    def get_shape(shape_type):\n        if shape_type == 'Circle':\n            return Circle()\n        elif shape_type == 'Square':\n            return Square()",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "ShapeFactory",
+        "kind": 6,
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "peekOfCode": "class ShapeFactory:\n    @staticmethod\n    def get_shape(shape_type):\n        if shape_type == 'Circle':\n            return Circle()\n        elif shape_type == 'Square':\n            return Square()\n        elif shape_type == 'Rectangle':\n            return Rectangle()\nif __name__ == '__main__':",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "ListNode",
+        "kind": 6,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "class ListNode:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\nclass LinkedList:\n    def __init__(self, head):\n        self.head = head\n        self.cur = None\n    def __iter__(self):\n        self.cur = self.head",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "LinkedList",
+        "kind": 6,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "class LinkedList:\n    def __init__(self, head):\n        self.head = head\n        self.cur = None\n    def __iter__(self):\n        self.cur = self.head\n        return self\n    def __next__(self):\n        if self.cur:\n            value = self.cur.value",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "head",
+        "kind": 5,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "head = ListNode(1)\nhead.next = ListNode(2)\nhead.next.next = ListNode(3)\nhead.next.next.next = ListNode(4)\nlinkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "head.next",
+        "kind": 5,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "head.next = ListNode(2)\nhead.next.next = ListNode(3)\nhead.next.next.next = ListNode(4)\nlinkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "head.next.next",
+        "kind": 5,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "head.next.next = ListNode(3)\nhead.next.next.next = ListNode(4)\nlinkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "head.next.next.next",
+        "kind": 5,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "head.next.next.next = ListNode(4)\nlinkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "linkedList",
+        "kind": 5,
+        "importPath": "iteratorPattern",
+        "description": "iteratorPattern",
+        "peekOfCode": "linkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
+        "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "YoutubeChannel",
+        "kind": 6,
+        "importPath": "pubsubPattern",
+        "description": "pubsubPattern",
+        "peekOfCode": "class YoutubeChannel:\n    def __init__(self, name):\n        self.name = name\n        self.subscribers = []\n    def subscribe(self, subscriber):\n        self.subscribers.append(subscriber)\n    def unsubscribe(self, subscriber):\n        self.subscribers.remove(subscriber)\n    def notify(self, event):\n        for subscriber in self.subscribers:",
+        "detail": "pubsubPattern",
+        "documentation": {}
+    },
+    {
+        "label": "YoutubeSubscriber",
+        "kind": 6,
+        "importPath": "pubsubPattern",
+        "description": "pubsubPattern",
+        "peekOfCode": "class YoutubeSubscriber(ABC):\n    @abstractmethod\n    def sendNotification(self, channelName, event):\n        pass\nclass YoutubeUser(YoutubeSubscriber):\n    def __init__(self, name):\n        self.name = name\n    def sendNotification(self, channelName, event):\n        print(f'{self.name} received notification from {channelName}: {event}')\nchannel = YoutubeChannel('smitCodes')",
+        "detail": "pubsubPattern",
+        "documentation": {}
+    },
+    {
+        "label": "YoutubeUser",
+        "kind": 6,
+        "importPath": "pubsubPattern",
+        "description": "pubsubPattern",
+        "peekOfCode": "class YoutubeUser(YoutubeSubscriber):\n    def __init__(self, name):\n        self.name = name\n    def sendNotification(self, channelName, event):\n        print(f'{self.name} received notification from {channelName}: {event}')\nchannel = YoutubeChannel('smitCodes')\nchannel.subscribe(YoutubeUser('user1'))\nchannel.subscribe(YoutubeUser('user2'))\nchannel.subscribe(YoutubeUser('user3'))\nchannel.notify('New Video Uploaded')",
+        "detail": "pubsubPattern",
+        "documentation": {}
+    },
+    {
+        "label": "channel",
+        "kind": 5,
+        "importPath": "pubsubPattern",
+        "description": "pubsubPattern",
+        "peekOfCode": "channel = YoutubeChannel('smitCodes')\nchannel.subscribe(YoutubeUser('user1'))\nchannel.subscribe(YoutubeUser('user2'))\nchannel.subscribe(YoutubeUser('user3'))\nchannel.notify('New Video Uploaded')",
+        "detail": "pubsubPattern",
+        "documentation": {}
+    },
+    {
+        "label": "ApplicationInstance",
+        "kind": 6,
+        "importPath": "singeltonPattern",
+        "description": "singeltonPattern",
+        "peekOfCode": "class ApplicationInstance:\n    instance = None\n    def __init__(self):\n        self.isLoggedIn = False\n    @staticmethod\n    def getInstance():\n        if not ApplicationInstance.instance :\n            ApplicationInstance.instance = ApplicationInstance()\n        return ApplicationInstance.instance\napp1 = ApplicationInstance.getInstance()",
+        "detail": "singeltonPattern",
+        "documentation": {}
+    },
+    {
+        "label": "app1",
+        "kind": 5,
+        "importPath": "singeltonPattern",
+        "description": "singeltonPattern",
+        "peekOfCode": "app1 = ApplicationInstance.getInstance()\nprint(app1.isLoggedIn)\napp2 = ApplicationInstance.getInstance()\nprint(app2.isLoggedIn)\napp2.isLoggedIn = True\nprint(app1.isLoggedIn)\nprint(app2.isLoggedIn)",
+        "detail": "singeltonPattern",
+        "documentation": {}
+    },
+    {
+        "label": "app2",
+        "kind": 5,
+        "importPath": "singeltonPattern",
+        "description": "singeltonPattern",
+        "peekOfCode": "app2 = ApplicationInstance.getInstance()\nprint(app2.isLoggedIn)\napp2.isLoggedIn = True\nprint(app1.isLoggedIn)\nprint(app2.isLoggedIn)",
+        "detail": "singeltonPattern",
+        "documentation": {}
+    },
+    {
+        "label": "app2.isLoggedIn",
+        "kind": 5,
+        "importPath": "singeltonPattern",
+        "description": "singeltonPattern",
+        "peekOfCode": "app2.isLoggedIn = True\nprint(app1.isLoggedIn)\nprint(app2.isLoggedIn)",
+        "detail": "singeltonPattern",
+        "documentation": {}
+    },
+    {
+        "label": "FilterStrategy",
+        "kind": 6,
+        "importPath": "stratergyPattern",
+        "description": "stratergyPattern",
+        "peekOfCode": "class FilterStrategy(ABC):\n    @abstractmethod\n    def removeValues(self, val):\n        pass\nclass RemoveNegativeStrategy(FilterStrategy):\n    def removeValues(self, val):\n        return val < 0\nclass RemoveOddStrategy(FilterStrategy):\n    def removeValues(self, val):\n        return abs(val) % 2",
+        "detail": "stratergyPattern",
+        "documentation": {}
+    },
+    {
+        "label": "RemoveNegativeStrategy",
+        "kind": 6,
+        "importPath": "stratergyPattern",
+        "description": "stratergyPattern",
+        "peekOfCode": "class RemoveNegativeStrategy(FilterStrategy):\n    def removeValues(self, val):\n        return val < 0\nclass RemoveOddStrategy(FilterStrategy):\n    def removeValues(self, val):\n        return abs(val) % 2\nclass Values:\n    def __init__(self, values):\n        self.values = values\n    def filter(self, strategy):",
+        "detail": "stratergyPattern",
+        "documentation": {}
+    },
+    {
+        "label": "RemoveOddStrategy",
+        "kind": 6,
+        "importPath": "stratergyPattern",
+        "description": "stratergyPattern",
+        "peekOfCode": "class RemoveOddStrategy(FilterStrategy):\n    def removeValues(self, val):\n        return abs(val) % 2\nclass Values:\n    def __init__(self, values):\n        self.values = values\n    def filter(self, strategy):\n        res = []\n        for val in self.values:\n            if not strategy.removeValues(val):",
+        "detail": "stratergyPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Values",
+        "kind": 6,
+        "importPath": "stratergyPattern",
+        "description": "stratergyPattern",
+        "peekOfCode": "class Values:\n    def __init__(self, values):\n        self.values = values\n    def filter(self, strategy):\n        res = []\n        for val in self.values:\n            if not strategy.removeValues(val):\n                res.append(val)\n        return res\nvalues = Values([1, 2, 3, 4, 5, -1, -2, -3, -4, -5])",
+        "detail": "stratergyPattern",
+        "documentation": {}
+    },
+    {
+        "label": "values",
+        "kind": 5,
+        "importPath": "stratergyPattern",
+        "description": "stratergyPattern",
+        "peekOfCode": "values = Values([1, 2, 3, 4, 5, -1, -2, -3, -4, -5])\nprint(values.filter(RemoveNegativeStrategy()))  # [1, 2, 3, 4, 5]\nprint(values.filter(RemoveOddStrategy()))    # [2, 4, -2, -4]",
+        "detail": "stratergyPattern",
+        "documentation": {}
+    }
+]
