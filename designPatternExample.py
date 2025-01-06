@@ -1,75 +1,59 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod, ABC
 
-class Button(ABC):
+class Coffee(ABC):
     @abstractmethod
-    def render(self):
+    def cost(self):
         pass
-
-class CheckBox(ABC):
     @abstractmethod
-    def check(self):
-        pass
-
-class MacBotton(Button):
-    def render(self):
-        print("Mac button")
-
-class MacCheckBox(CheckBox):
-    def check(self):
-        print(f"Mac checkbox rendered")
-
-class LinuxButton(Button):
-    def render(self):
-        print(f"Linux button")
-
-class LinuxCheckBox(CheckBox):
-    def check(self):
-        print("Linux checkbox") 
-
-class GUIFactory(ABC):
-    @abstractmethod
-    def create_button(self):
-        pass
-    
-    @abstractmethod
-    def create_check_box(self):
+    def description(self):
         pass 
 
-class LinuxFactory(GUIFactory):
-    def create_button(self):
-        return LinuxButton()
+class SimpleCoffee(Coffee):
+    def cost(self):
+        return 5
+    def description(self):
+        return (f"Simple coffee")
+
+class CoffeeDecorator(Coffee):
+    def __init__(self, coffee):
+        self._coffee = coffee
     
-    def create_check_box(self):
-        return LinuxCheckBox()
+    def cost(self):
+        return self._coffee.cost()
 
-class MacFactory(GUIFactory):
-    def create_button(self):
-        return MacBotton()
+    def description(self):
+        return (f'{self._coffee.description()}')
 
-    def create_check_box(self):
-        return MacCheckBox()
-
-
-class Application:
-    def __init__(self, factory:GUIFactory):
-        self.factory = factory
+class MilkDecoration(CoffeeDecorator):
+    def cost(self):
+        return super().cost() + 2 
     
-    def create_ui(self):
-        self.button = self.factory.create_button()
-        self.check_box = self.factory.create_check_box()
+    def description(self):
+        return (f"{super().description() } Milk ")
+
+class SugarDecoration(CoffeeDecorator):
+    def cost(self):
+        return super().cost() + 5
     
-    def render_ui(self):
-        self.button.render()
-        self.check_box.check()
+    def description(self):
+        return (f"{super().description()} Sugar")
+        
 
-print("Creating Mac application")
-macApplication = Application(MacFactory())
-macApplication.create_ui()
-macApplication.render_ui()
+if __name__ == '__main__':
+    print("-----Simple Coffee")
+    coffee = SimpleCoffee()
+    print(coffee.description())
+    
+    print("-----Milk Coffee")
 
-print("Creating Linux application")
-linuxApplication = Application(LinuxFactory())
-linuxApplication.create_ui()
-linuxApplication.render_ui()
+    coffee = MilkDecoration(coffee)
+    print(coffee.description())
+
+    print("------Sugar Coffee")
+    
+    coffee = SugarDecoration(coffee)
+    print(coffee.description())
+    
+
         
         

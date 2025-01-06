@@ -16,6 +16,22 @@
         "documentation": {}
     },
     {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
         "label": "ABC",
         "importPath": "abc",
         "description": "abc",
@@ -64,19 +80,28 @@
         "documentation": {}
     },
     {
-        "label": "ABC",
-        "importPath": "abc",
-        "description": "abc",
+        "label": "copy",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "abc",
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
         "documentation": {}
     },
     {
-        "label": "abstractmethod",
-        "importPath": "abc",
-        "description": "abc",
+        "label": "Rectangle",
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
         "isExtraImport": true,
-        "detail": "abc",
+        "detail": "factoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Shape",
+        "importPath": "factoryPattern",
+        "description": "factoryPattern",
+        "isExtraImport": true,
+        "detail": "factoryPattern",
         "documentation": {}
     },
     {
@@ -185,6 +210,33 @@
         "description": "abstractFactoryPattern",
         "peekOfCode": "linuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
         "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "RoundPinCharger",
+        "kind": 6,
+        "importPath": "adapterPattern",
+        "description": "adapterPattern",
+        "peekOfCode": "class RoundPinCharger:\n    def connect_to_round_pin(self):\n        print(f\"connected to round pin charger\")\nclass USBCPinCharger:\n    def connect_to_usb_pin(self):\n        print(f\"connected to usb pin charger\")\nclass ChargerAdapter:\n    def __init__(self, usbc_charger):\n        self.usbc_charger = usbc_charger\n    def connect_round_pin(self):",
+        "detail": "adapterPattern",
+        "documentation": {}
+    },
+    {
+        "label": "USBCPinCharger",
+        "kind": 6,
+        "importPath": "adapterPattern",
+        "description": "adapterPattern",
+        "peekOfCode": "class USBCPinCharger:\n    def connect_to_usb_pin(self):\n        print(f\"connected to usb pin charger\")\nclass ChargerAdapter:\n    def __init__(self, usbc_charger):\n        self.usbc_charger = usbc_charger\n    def connect_round_pin(self):\n        return self.usbc_charger.connect_to_usb_pin()\nif __name__ == '__main__':\n    round_pin_charger = RoundPinCharger()",
+        "detail": "adapterPattern",
+        "documentation": {}
+    },
+    {
+        "label": "ChargerAdapter",
+        "kind": 6,
+        "importPath": "adapterPattern",
+        "description": "adapterPattern",
+        "peekOfCode": "class ChargerAdapter:\n    def __init__(self, usbc_charger):\n        self.usbc_charger = usbc_charger\n    def connect_round_pin(self):\n        return self.usbc_charger.connect_to_usb_pin()\nif __name__ == '__main__':\n    round_pin_charger = RoundPinCharger()\n    round_pin_charger.connect_to_round_pin()\n    usbc_charger = USBCPinCharger()\n    adapter = ChargerAdapter(usbc_charger)",
+        "detail": "adapterPattern",
         "documentation": {}
     },
     {
@@ -242,110 +294,47 @@
         "documentation": {}
     },
     {
-        "label": "Button",
+        "label": "Coffee",
         "kind": 6,
         "importPath": "designPatternExample",
         "description": "designPatternExample",
-        "peekOfCode": "class Button(ABC):\n    @abstractmethod\n    def render(self):\n        pass\nclass CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):",
+        "peekOfCode": "class Coffee(ABC):\n    @abstractmethod\n    def cost(self):\n        pass\n    @abstractmethod\n    def description(self):\n        pass \nclass SimpleCoffee(Coffee):\n    def cost(self):\n        return 5",
         "detail": "designPatternExample",
         "documentation": {}
     },
     {
-        "label": "CheckBox",
+        "label": "SimpleCoffee",
         "kind": 6,
         "importPath": "designPatternExample",
         "description": "designPatternExample",
-        "peekOfCode": "class CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")",
+        "peekOfCode": "class SimpleCoffee(Coffee):\n    def cost(self):\n        return 5\n    def description(self):\n        return (f\"Simple coffee\")\nclass CoffeeDecorator(Coffee):\n    def __init__(self, coffee):\n        self._coffee = coffee\n    def cost(self):\n        return self._coffee.cost()",
         "detail": "designPatternExample",
         "documentation": {}
     },
     {
-        "label": "MacBotton",
+        "label": "CoffeeDecorator",
         "kind": 6,
         "importPath": "designPatternExample",
         "description": "designPatternExample",
-        "peekOfCode": "class MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):",
+        "peekOfCode": "class CoffeeDecorator(Coffee):\n    def __init__(self, coffee):\n        self._coffee = coffee\n    def cost(self):\n        return self._coffee.cost()\n    def description(self):\n        return (f'{self._coffee.description()}')\nclass MilkDecoration(CoffeeDecorator):\n    def cost(self):\n        return super().cost() + 2 ",
         "detail": "designPatternExample",
         "documentation": {}
     },
     {
-        "label": "MacCheckBox",
+        "label": "MilkDecoration",
         "kind": 6,
         "importPath": "designPatternExample",
         "description": "designPatternExample",
-        "peekOfCode": "class MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):",
+        "peekOfCode": "class MilkDecoration(CoffeeDecorator):\n    def cost(self):\n        return super().cost() + 2 \n    def description(self):\n        return (f\"{super().description() } Milk \")\nclass SugarDecoration(CoffeeDecorator):\n    def cost(self):\n        return super().cost() + 5\n    def description(self):\n        return (f\"{super().description()} Sugar\")",
         "detail": "designPatternExample",
         "documentation": {}
     },
     {
-        "label": "LinuxButton",
+        "label": "SugarDecoration",
         "kind": 6,
         "importPath": "designPatternExample",
         "description": "designPatternExample",
-        "peekOfCode": "class LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "LinuxCheckBox",
-        "kind": 6,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "class LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass ",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "GUIFactory",
-        "kind": 6,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "class GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass \nclass LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "LinuxFactory",
-        "kind": 6,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "class LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()\n    def create_check_box(self):\n        return LinuxCheckBox()\nclass MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "MacFactory",
-        "kind": 6,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "class MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()\nclass Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "Application",
-        "kind": 6,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "class Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()\n        self.check_box = self.factory.create_check_box()\n    def render_ui(self):\n        self.button.render()\n        self.check_box.check()\nprint(\"Creating Mac application\")",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "macApplication",
-        "kind": 5,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "macApplication = Application(MacFactory())\nmacApplication.create_ui()\nmacApplication.render_ui()\nprint(\"Creating Linux application\")\nlinuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
-        "detail": "designPatternExample",
-        "documentation": {}
-    },
-    {
-        "label": "linuxApplication",
-        "kind": 5,
-        "importPath": "designPatternExample",
-        "description": "designPatternExample",
-        "peekOfCode": "linuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
+        "peekOfCode": "class SugarDecoration(CoffeeDecorator):\n    def cost(self):\n        return super().cost() + 5\n    def description(self):\n        return (f\"{super().description()} Sugar\")\nif __name__ == '__main__':\n    print(\"-----Simple Coffee\")\n    coffee = SimpleCoffee()\n    print(coffee.description())\n    print(\"-----Milk Coffee\")",
         "detail": "designPatternExample",
         "documentation": {}
     },
@@ -455,6 +444,33 @@
         "description": "iteratorPattern",
         "peekOfCode": "linkedList = LinkedList(head)\nfor value in linkedList:\n    print(value)",
         "detail": "iteratorPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Shape",
+        "kind": 6,
+        "importPath": "prototypePattern",
+        "description": "prototypePattern",
+        "peekOfCode": "class Shape:\n    def __init__(self, shape_type):\n        self.shape_type = shape_type\n    def __str__(self):\n        return f\"Shape  : {self.shape_type}\"\n    def clone(self):\n        return copy.deepcopy(self)\nclass Rectangle(Shape):\n    def __init__(self, width, height):\n        super().__init__('Rectangle')",
+        "detail": "prototypePattern",
+        "documentation": {}
+    },
+    {
+        "label": "Rectangle",
+        "kind": 6,
+        "importPath": "prototypePattern",
+        "description": "prototypePattern",
+        "peekOfCode": "class Rectangle(Shape):\n    def __init__(self, width, height):\n        super().__init__('Rectangle')\n        self.width = width\n        self.height = height\n    def __str__(self):\n        return f\"{super().__str__()}, Width : {self.width} Height : {self.height}\"\nclass Circle(Shape):\n    def __init__(self, radius):\n        super().__init__('Circle')",
+        "detail": "prototypePattern",
+        "documentation": {}
+    },
+    {
+        "label": "Circle",
+        "kind": 6,
+        "importPath": "prototypePattern",
+        "description": "prototypePattern",
+        "peekOfCode": "class Circle(Shape):\n    def __init__(self, radius):\n        super().__init__('Circle')\n        self.radius = radius \n    def __str__(self):\n        return f\"{super().__str__()} Radius : {self.radius} \"\nif __name__ == '__main__':\n    circle_prototype = Circle(6)\n    rectangle_prototype = Rectangle(7, 8)\n    print(\"Original Prototype\")",
+        "detail": "prototypePattern",
         "documentation": {}
     },
     {
