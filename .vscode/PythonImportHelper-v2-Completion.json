@@ -48,6 +48,146 @@
         "documentation": {}
     },
     {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class Button(ABC):\n    @abstractmethod\n    def render(self):\n        pass\nclass CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "CheckBox",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "MacBotton",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "MacCheckBox",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxButton",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxCheckBox",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass ",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "GUIFactory",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass \nclass LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxFactory",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()\n    def create_check_box(self):\n        return LinuxCheckBox()\nclass MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "MacFactory",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()\nclass Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Application",
+        "kind": 6,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "class Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()\n        self.check_box = self.factory.create_check_box()\n    def render_ui(self):\n        self.button.render()\n        self.check_box.check()\nprint(\"Creating Mac application\")",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "macApplication",
+        "kind": 5,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "macApplication = Application(MacFactory())\nmacApplication.create_ui()\nmacApplication.render_ui()\nprint(\"Creating Linux application\")\nlinuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
+        "label": "linuxApplication",
+        "kind": 5,
+        "importPath": "abstractFactoryPattern",
+        "description": "abstractFactoryPattern",
+        "peekOfCode": "linuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
+        "detail": "abstractFactoryPattern",
+        "documentation": {}
+    },
+    {
         "label": "Burger",
         "kind": 6,
         "importPath": "builderPattern",
@@ -99,6 +239,114 @@
         "description": "creationalPattern",
         "peekOfCode": "burgerFactory = BurgerFactory()\nburgerFactory.createChickenBurger().print()\nburgerFactory.createCheeseBurger().print()\nburgerFactory.createVegBurger().print()\nburgerFactory.createVeganBurger().print()",
         "detail": "creationalPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class Button(ABC):\n    @abstractmethod\n    def render(self):\n        pass\nclass CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "CheckBox",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class CheckBox(ABC):\n    @abstractmethod\n    def check(self):\n        pass\nclass MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "MacBotton",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class MacBotton(Button):\n    def render(self):\n        print(\"Mac button\")\nclass MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "MacCheckBox",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class MacCheckBox(CheckBox):\n    def check(self):\n        print(f\"Mac checkbox rendered\")\nclass LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxButton",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class LinuxButton(Button):\n    def render(self):\n        print(f\"Linux button\")\nclass LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxCheckBox",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class LinuxCheckBox(CheckBox):\n    def check(self):\n        print(\"Linux checkbox\") \nclass GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass ",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "GUIFactory",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class GUIFactory(ABC):\n    @abstractmethod\n    def create_button(self):\n        pass\n    @abstractmethod\n    def create_check_box(self):\n        pass \nclass LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "LinuxFactory",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class LinuxFactory(GUIFactory):\n    def create_button(self):\n        return LinuxButton()\n    def create_check_box(self):\n        return LinuxCheckBox()\nclass MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "MacFactory",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class MacFactory(GUIFactory):\n    def create_button(self):\n        return MacBotton()\n    def create_check_box(self):\n        return MacCheckBox()\nclass Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "Application",
+        "kind": 6,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "class Application:\n    def __init__(self, factory:GUIFactory):\n        self.factory = factory\n    def create_ui(self):\n        self.button = self.factory.create_button()\n        self.check_box = self.factory.create_check_box()\n    def render_ui(self):\n        self.button.render()\n        self.check_box.check()\nprint(\"Creating Mac application\")",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "macApplication",
+        "kind": 5,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "macApplication = Application(MacFactory())\nmacApplication.create_ui()\nmacApplication.render_ui()\nprint(\"Creating Linux application\")\nlinuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
+        "detail": "designPatternExample",
+        "documentation": {}
+    },
+    {
+        "label": "linuxApplication",
+        "kind": 5,
+        "importPath": "designPatternExample",
+        "description": "designPatternExample",
+        "peekOfCode": "linuxApplication = Application(LinuxFactory())\nlinuxApplication.create_ui()\nlinuxApplication.render_ui()",
+        "detail": "designPatternExample",
         "documentation": {}
     },
     {
